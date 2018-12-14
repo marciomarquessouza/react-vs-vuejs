@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classes from './Person.css';
+import WithClass from '../../../hoc/WithClass';
 
 class Person extends Component {
   // Creation Lifecyle
@@ -24,8 +25,7 @@ class Person extends Component {
   render () {
     console.log("[Person.js] render");
     return (
-      <div
-        className = { classes.Person }>
+      <WithClass classes = { classes.Person } >
         <p onClick={ this.props.personDelete }>The { this.props.name } is { this.props.age } old:</p>
         <p>{ this.props.children }</p>
         <input
@@ -33,9 +33,9 @@ class Person extends Component {
           type="text"
           onChange={ this.props.changeName }
           value={ this.props.name }/>
-      </div>
-    );
-  }
+      </WithClass>
+      );
+    }
 }
 
 export default Person;
